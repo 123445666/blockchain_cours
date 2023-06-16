@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { ethers } from 'ethers';
-// import BoobaTokenJSON from '../../artifacts/contracts/BoobaToken.sol/BoobaToken.json';
+import VietContractJSON from '../../artifacts/contracts/VietContract.sol/VietContract.json';
 
 declare global {
   interface Window {
@@ -15,11 +15,17 @@ function App() {
 
 	const handleMint = async () => {
 		const contractAddress = '0xD83b190c7656cEc00888e7483244698407d2265F';
-		const abi = '';//BoobaTokenJSON.abi;
+		const abi = VietContractJSON.abi;
 
 		const provider = new ethers.providers.Web3Provider(window.ethereum);
 		const signer = provider.getSigner();
 		const contract = new ethers.Contract(contractAddress, abi, signer);
+
+		const tokenId = 0; // Set the token ID here
+		const tx = await contract.mint(tokenId);
+		await tx.wait();
+		console.log('NFT minted successfully!');
+		
 		console.log({ contract });
     const tx = await contract.mint(currentAccount, {
       value: ethers.utils.parseEther('0.1'),
