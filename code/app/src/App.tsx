@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
 import './App.css';
 import { ethers } from 'ethers';
 // import BoobaTokenJSON from '../../artifacts/contracts/BoobaToken.sol/BoobaToken.json';
@@ -15,7 +13,7 @@ declare global {
 function App() {
 	const [currentAccount, setCurrentAccount] = useState<string | null>(null);
 
-	const handleBuy = async () => {
+	const handleMint = async () => {
 		const contractAddress = '0xD83b190c7656cEc00888e7483244698407d2265F';
 		const abi = '';//BoobaTokenJSON.abi;
 
@@ -45,10 +43,10 @@ function App() {
 
 	return (
 		<>
-			<h1>Booba Token</h1>
+			<h1>Mint NFT</h1>
 			<div className='card'>
 				{currentAccount ? (
-					<button onClick={handleBuy}>Buy B2O</button>
+					<button onClick={handleMint}>Mint NFT</button>
 				) : (
 					<button onClick={handleLogin}>Connect</button>
 				)}
