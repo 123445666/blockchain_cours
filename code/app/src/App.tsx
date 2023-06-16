@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { ethers } from 'ethers';
-import VietTokenJSON from '../../artifacts/contracts/VietToken.sol/VietToken.json';
+// import VietTokenJSON from '../../artifacts/contracts/VietToken.sol/VietToken.json';
 
 declare global {
   interface Window {
