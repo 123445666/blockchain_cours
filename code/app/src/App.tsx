@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 import { ethers } from 'ethers';
-// import VietTokenJSON from '../../artifacts/contracts/VietToken.sol/VietToken.json';
+import VietTokenJSON from '../../artifacts/contracts/VietToken.sol/VietToken.json';
 
 declare global {
   interface Window {
@@ -14,7 +14,7 @@ function App() {
 	const [currentAccount, setCurrentAccount] = useState<string | null>(null);
 
 	const handleMint = async () => {
-		const contractAddress = '0xD83b190c7656cEc00888e7483244698407d2265F';
+		const contractAddress = '0xa3Ca57DD3169E17A491f571b4C161304af2A110b';
 		const abi = VietTokenJSON.abi;
 
 		const provider = new ethers.providers.Web3Provider(window.ethereum);
